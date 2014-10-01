@@ -3,12 +3,14 @@ require_relative 'commands/author_search_command'
 require_relative 'commands/number_of_copies_command'
 require_relative 'commands/update_book_command'
 require_relative 'commands/quit_command'
+require_relative 'commands/genre_search_command'
 
 data_source = CsvReader.new (ARGV[0])
 data_source.start
 
 commands = [
 	AuthorSearchCommand.new(data_source),   
+	GenreSearchCommand.new(data_source),
 	NumberOfCopiesCommand.new(data_source),
 	UpdateBookCommand.new(data_source),
 	QuitCommand.new(data_source)
